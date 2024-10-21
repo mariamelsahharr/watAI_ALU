@@ -63,5 +63,3 @@ module top_level_alu (
     );
 
 endmodule
-`include "adder.v"
-`include "dreg.v"

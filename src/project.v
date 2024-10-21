@@ -22,6 +22,27 @@ module tt_um_example (
   assign uio_oe  = 0;
 
   // List all unused inputs to prevent warnings
-  wire _unused = &{ena, clk, rst_n, 1'b0};
+  wire _unused = &{ena, 1'b0};
 
+    wire [7:0] A_in; // Address Lines
+    wire [7:0] B_in; // Data LinesA_
+    wire [7:0] BUS_out; // Output Lines
+  wire su;
+  wire fi;
+    wire enable_out;
+    wire[1:0] out;
+    
+    
+ top_level_alu aluinst1 (
+     .A(A_in),
+     .B(B_in),
+     .CLK(clk),
+     .CLR(~rst_n),
+     .SU(su),
+     .FI(fi),
+     .E0(enable_out),
+     .BUS(BUS_out),
+     .CF(out[0]),
+     .ZF(out[1])
+);
 endmodule
